@@ -1,0 +1,54 @@
+<?php
+session_start();
+header('Content-Type: text/html; charset=UTF-8');  
+if(empty($_SESSION))
+{
+  header("Location: login.html");
+}
+$username=$_SESSION['username'];
+?>
+<!DOCTYPE html>
+  <head>
+    <title>a-book</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript"src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js">
+    </script>
+    <link href='css/styles.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="container">
+<br>
+<div class="row row-centered">
+  <div class="col-md-6 col-centered">
+ <div class="panel panel-info">
+            <div class="panel-heading"><h3>Instrucciones</h3></div>
+            <div class="panel-body">
+               ¡Bienvenidos! Estamos muy contentos de que nos visites. Queremos invitarte a leer... pero queremos que tu lectura sea lo más entretenida posible. Para esto, te acompañaremos en tu lectura…<br>¿Cómo funciona? Podrás elegir entre varios cuentos. Elige los cuentos que tú quieras y léelos cuantas veces quieras.<br>Cuando elijas un cuento, leerás una página, y luego responderás una pregunta sobre lo que estás leyendo.<br>Responde lo mejor que puedas pero lo más importante es que te entretengas leyendo.<br>Esperamos que te agraden los cuentos que hemos preparado para ti.<br>¡A LEER!
+
+
+
+            </div>
+
+          </div>
+
+
+
+  </div>
+ 
+</div>
+        <div class="centered">
+              <a  class='btn btn-large btn-default' href='main.html'>Siguiente</a>
+            </div>
+            
+    </div>
+
+
+
+  </body>
+    
+ </html>

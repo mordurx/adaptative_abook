@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Subir Preguntas</title>
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/fileinput.js" type="text/javascript"></script>
+	<script src="js/fileinput_locale_es.js" type="text/javascript"></script>
+	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>  
+     
+	 <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+  </head>
+  <!-- some CSS styling changes and overrides -->
+<style>
+.kv-avatar .file-preview-frame,.kv-avatar .file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+.kv-avatar .file-input {
+    display: table-cell;
+    max-width: 220px;
+}
+</style>
+  <body>
+
+		<div class="container" style="background-color:#eeeeee;">
+			<div class="hero-unit">
+				<h1>Sube tu Cuento</h1>
+				<p>Para subir cada cuento.<br> se debe completar
+					la siguiente información y luego subir un excel con las paginas del cuento.</p>
+				<div class="row row-centered">
+					<div class="col-xs-6 col-centered col-min">
+						<div class="panel panel-primary ">
+							<div class="panel-heading"><h4>Agregar Preguntas</h4></div>
+								<div class="panel-body">
+								
+									<form id="idForm" action="subir_cuento.php" enctype="multipart/form-data" method="POST">
+									<label>Nombre cuento</label>
+									<input type="text" class="form-control" value="" placeholder="nombre del cuento" name="cuento" id="cuento" required />
+										<br>
+									<label>imagen cuento</label>	
+									<div id="kv-avatar-errors" class="center-block" style="width:800px;display:none"></div>
+									<div class="kv-avatar center-block" style="width:200px">
+        							<input id="avatar" name="avatar" type="file" class="file-loading" required>
+    								</div>
+
+
+
+
+										
+									<label>subir paginas </label>	
+									<br>	
+									<input  name="archivo" id="archivo" class="file" type="file" multiple data-min-file-count="1" data-allowed-file-extensions='["xlsx", "xls"]'>
+									<br>
+									<button type="submit" class="btn btn-primary">Submit</button>
+									<button type="reset" class="btn btn-default">Reset</button>
+									<div class="col-md-6 col-md-offset-4 " id="mensaje">
+									</div>
+									</form>
+									
+								
+             						
+                
+				
+								
+								
+								</div>
+							</div>
+						</div> 					
+				</div>				
+					
+			
+         
+			</div>
+			
+			
+			
+		
+  
+   	  	</div>
+    
+	
+  </body>
+ <!-- the fileinput plugin initialization -->
+<script>
+var btnCust = '<button type="button" class="btn btn-default" title="Add picture tags" ' + 
+    'onclick="alert(\'Call your custom code here.\')">' +
+    '<i class="glyphicon glyphicon-tag"></i>' +
+    '</button>'; 
+$("#avatar").fileinput({
+    overwriteInitial: true,
+    maxFileSize: 1500,
+    showClose: false,
+    showCaption: false,
+    browseLabel: '',
+    removeLabel: '',
+    browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
+    removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+    removeTitle: 'Cancel or reset changes',
+    elErrorContainer: '#kv-avatar-errors',
+    msgErrorClass: 'alert alert-block alert-danger',
+    defaultPreviewContent: '<img src="img/Camera.png" alt="Your Avatar" style="width:160px">',
+    layoutTemplates: {main2: '{preview}  {remove} {browse}'},
+    allowedFileExtensions: ["jpg", "png","jpeg"]
+});
+</script>
+</html>

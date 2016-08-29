@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+	<link rel="shortcut icon" href="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/css_login.css">
+	<script src="js/login.js" type="text/javascript"></script>
+	<title>a - book</title>
+
+</head>
+
+<body>
+
+<div class="logo"></div>
+<div class="login-block">
+    <h1>Login</h1>
+    <form id="form" onsubmit="login(this.username.value);return false;" method="POST">
+    	<div class="inner-addon left-addon">
+    		<i class="glyphicon glyphicon-user"></i>     
+			<input type="text" class="form-control" value="" placeholder="username"  title="campo obligatorio" name="username" id="username" />
+    	</div>
+    	
+		<div class="inner-addon left-addon">
+			<p ><a href="recuperar_clave.html">¿ 
+				olvidaste tu acesso ?</a></p>
+			</div>		
+		
+		<div class="inner-addon left-addon">
+    	<div class="center" style="text-align:center">
+		<button type="submit" class="btn btn-primary" >Ingresar</button>
+    
+		</div>
+    </div>
+	</form>
+	
+	<div id="message">
+	</div>
+</div>
+</body>
+</html>
+

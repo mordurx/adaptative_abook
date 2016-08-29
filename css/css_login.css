@@ -1,0 +1,141 @@
+
+body {
+    background-size: cover;
+    font-family: Montserrat;
+}
+
+
+.link{
+text-align:center;
+    
+}
+.href{
+margin-bottom: 10px;
+a.one:link {color:#ff0000;}
+a.one:visited {color:#0000ff;}
+a.one:hover {color:#ffcc00;}
+
+}
+
+
+.logo {
+    width: 250px;
+    height: 159px;
+    background: url('../img/eplab.png') no-repeat;
+    margin: 20px auto;
+}
+
+.login-block {
+    width: 350px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border: 5px solid #0C1563;
+    margin: 0 auto;
+}
+
+.login-block h1 {
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.login-block input [type="text"]{
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+     margin-bottom: 30px;
+   
+}
+.login-block select {
+    width: 100%;
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    
+}
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+.usericon input {
+    padding-left:25px;
+}
+.usericon:before {
+    height: 100%;
+    width: 25px;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    position: absolute;
+    content: "\e008";
+    font-family: 'Glyphicons Halflings';
+    pointer-events: none;
+}
+.login-block #button {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    background: #0C1563;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #e15960;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    
+}
+
+.login-block button:hover {
+    background: #0C1563;
+}
+/* enable absolute positioning */
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  color: grey;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
+#checkbox2 input[type="checkbox"]:empty ~ label:before {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 2.5em;
+  background: #D1D3D4;
+  border-radius: 3px 0 0 3px;
+  text-align: left;
+} 
+
+

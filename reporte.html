@@ -1,0 +1,94 @@
+<?php
+session_start();
+header('Content-Type: text/html; charset=UTF-8');  
+setlocale(LC_ALL, 'es_ES').': ';
+
+$id_cuento=$_GET['id_cuento'];
+$username=$_GET['user'];
+$username=base64_decode($username);
+?>
+
+<!DOCTYPE html>
+  <head>
+    <title>a-book</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript"src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js">
+    </script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='css/styles.css' rel='stylesheet' type='text/css'>
+    <script src="js/listar_cuentos.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() 
+      {
+        reporte('<?php echo $username ?>',<?php echo $id_cuento ?>);
+      }, false);
+    </script>
+  
+  </head>
+  <body>
+    <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+    <script src="js/Chart.min.js"></script>
+
+    <div class="container">
+            <br>
+         <div class="panel panel-info">
+            <div class="panel-heading">
+            <h3>Reporte  Usuario: <?php echo $username ?></h3>
+            <p><?php echo utf8_encode(strftime('%A %d de %B de %Y a las %H:%M' , time())); ?></p>
+            </div>
+            <div class="panel-body">
+              <div class="centered">             
+               <canvas id="myChart" width="500" height="500"></canvas>
+               
+
+                </div>
+                <div class="centered">
+                  <i class="fa fa-info-circle" style="margin-right: 35px;font-size:30px;color:lightblue;" data-toggle="tooltip" data-placement="top" title="Inferencias: Cuando leemos un texto, cierta información no aparece explícitamente, y aun así podemos llegar a ella. ¿Cómo hacemos esto? A través de inferencias. Las inferencias son procesos deductivos que se basan en la información presente en el texto y los conocimientos previos del lector. Es como “leer entre líneas”. Para promover el uso de inferencias en la lectura es muy importante que hacerse preguntas sobre contenido que no están explícitos en la historia. Por ejemplo, ¿Cómo se sentía el protagonista?¿En que estaba pensando?¿Cuáles eran sus intenciones?"><p style="font-size:20px;color:black;">Inferencia</p></i>
+
+
+                <i class="fa fa-info-circle" style="margin-right: 30px;margin-left: 30px;font-size:30px;color:lightblue;" data-toggle="tooltip" data-placement="top" title="Monitoreo: Otra habilidad importante a la hora de comprender un texto es saber poner atención al propio proceso de comprensión. A esto le llamamos auto-monitoreo. Lo central de esta habilidad es que el lector adquiera el hábito de detectar cuando no haya entendido bien una parte del texto, y si es así, releer la oración o el párrafo que no haya quedado claro. Para promover esta habilidad, es importante que el lector haga preguntas simples sobre el contenido de la historia. Algunos ejemplos generales podría ser ¿Cómo se llama el personaje? ¿Qué le dijo a su amigo cuando se encontraron?"><p style="font-size:20px;color:black;">Monitoreo</p></i>
+
+                <i class="fa fa-info-circle" style="margin-left: 30px;font-size:30px;color:lightblue;" data-toggle="tooltip" data-placement="top" title="Estructura: El conocimiento de la estructura de los historias es también una habilidad muy importante para la comprensión lectora. El lector debería poder identificar las etapas de un cuento. Es decir, debería saber que esperar al comienzo de una historia, durante el desarrollo y finalmente el desenlace. Algunas preguntas que pueden promover esta habilidad son, por ejemplo, ¿conocemos ya a los personajes de la historia? ¿Sabemos cuál es el problema central de la historia? ¿Se resolvió ya el problema?"><p style="font-size:20px;color:black;">Estructura</p></i>
+                </div>
+              
+               
+
+
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+    </div>
+
+
+
+
+
+  </body>
+    
+ </html>
