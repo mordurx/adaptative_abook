@@ -11,7 +11,72 @@ $id_numeracion=$_POST['id_numeracion'];
 $username=$_SESSION['username'];
 $termino=Is_End($con,$username,$id_cuento);
 if ($termino==true) 
-{
+{   //si el usuario termino desaparecer el cuento
+    $sql="update Cuento_por_Usuario set disponible=False WHERE id_usuario='$username' and id_cuento=$id_cuento";
+    
+        if (!$resultado = $con->query($sql)) 
+    {
+        $error=mysqli_error($con);
+        echo $error;
+        exit();
+    }
+    //registro de cuentos finalizados
+      $sql="insert into Cuento_finalizado(id_usuario,id_cuento)values('$username',$id_cuento)";
+   
+        if (!$resultado = $con->query($sql)) {
+            $error=mysqli_error($con);
+            echo $error;
+            exit();
+        }
+
+
+    // evaluo, if exits, THREE  disable tales, i must put the most old tale in enable mode.
+    $sql="select count(disponible)as cuentos_disable from Cuento_por_Usuario WHERE disponible=False and id_usuario='$username'";
+        if (!$resultado = $con->query($sql)) 
+    {
+        $error=mysqli_error($con);
+        echo $error;
+        exit;
+    }
+
+    $arr_cuento_disable=$resultado->fetch_assoc();
+    $cuentos_disable=$arr_cuento_disable['cuentos_disable'];
+
+    if ($cuentos_disable==3) 
+    {
+        # si cuentos disables es 3 , debo hacer aparecer el cuentos disabled mas antiguo
+        $sql="SELECT id_cuento,fecha FROM Cuento_finalizado where id_usuario='$username' ORDER by fecha ASC LIMIT 1";
+          if (!$resultado = $con->query($sql)) 
+          {
+            $error=mysqli_error($con);
+            echo $error;
+            exit();
+          }
+        $id_cuento_enable=$resultado->fetch_assoc();
+        $cuento_enable=$id_cuento_enable['id_cuento'];
+        $fecha=$id_cuento_enable['fecha'];
+        # una ves que se obtiene el registro mas antiguo , este debe desaparecer....
+        $sql="delete FROM Cuento_finalizado where id_usuario='$username' and id_cuento=$cuento_enable and fecha='$fecha'";
+          if (!$resultado = $con->query($sql)) 
+          {
+            $error=mysqli_error($con);
+            echo $error;
+            exit();
+          }
+
+
+
+
+        //si el usuario termino desaparecer el cuento
+        $sql="update Cuento_por_Usuario set disponible=True WHERE id_usuario='$username' and id_cuento=$cuento_enable";
+    
+        if (!$resultado = $con->query($sql)) 
+        {
+            $error=mysqli_error($con);
+            echo $error;
+            exit();
+        }  
+    }
 	$sql="SELECT veces_leido FROM Cuento_por_Usuario WHERE id_usuario='$username' and id_cuento=$id_cuento";
 	     if (!$resultado = $con->query($sql)) 
     {

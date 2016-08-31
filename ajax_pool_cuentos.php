@@ -3,7 +3,7 @@ include("ConectarBaseDatos.php");
 $con=ConectarDB();
 $con->set_charset("utf8"); 
 $username=$_POST['username'];
-$sql1= "SELECT Cuento.id_cuento,nombre,imagen,ind_pagina FROM Cuento inner join Cuento_por_Usuario on Cuento.id_cuento=Cuento_por_Usuario.id_cuento where veces_leido<4 and id_usuario='$username'";
+$sql1= "SELECT Cuento.id_cuento,nombre,imagen,ind_pagina FROM Cuento inner join Cuento_por_Usuario on Cuento.id_cuento=Cuento_por_Usuario.id_cuento where veces_leido<4 and id_usuario='$username' and disponible=True";
 if (!$resultado = $con->query($sql1)) {
         // ¡Oh, no! La consulta falló. 
         echo "error consulta a la base de datos.";
