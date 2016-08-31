@@ -35,8 +35,8 @@ if (!$resultado = $con->query($sql))
 $arr_kind_feed_back = $resultado->fetch_assoc();
 $id_feedback=$arr_kind_feed_back['id_feedback'];	   
 if ($id_feedback===null)
- {
- 	insert_Resp_User($con,$user,$id_pregunta,$resp_user,$resp_correcta,$id_cuento,$id_numeracion); 
+ {  
+ 	insert_Resp_User($con,$user,$id_pregunta,$resp_user,$resp_correcta,$id_cuento,$id_numeracion,$veces_leido); 
 
  }
  else

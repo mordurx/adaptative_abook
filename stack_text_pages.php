@@ -98,7 +98,7 @@ function cross_threshold($username,$id_pagina,$id_cuento,$texto_pagina,$num,$int
 			    $id_next_preg=$arr_preg_sel['id_pregunta'];
 			    //validar que no haya una pregunta ya almacenada
 			    
-                $sql= "SELECT id_pregunta FROM Respuesta_pregunta where id_pagina=$id_pagina and nombre_usuario='$username' limit 1";
+                $sql= "SELECT id_pregunta FROM Respuesta_pregunta where id_pagina=$id_pagina and nombre_usuario='$username' and intento=$intento limit 1";
 			    if (!$resultado = $con->query($sql)) 
 			    	{
 			         $error=mysqli_error($con);

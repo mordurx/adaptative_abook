@@ -1,5 +1,5 @@
 <?php
-function insert_Resp_User($con,$user,$id_pregunta,$resp_user,$resp_correct,$id_cuento,$id_num)
+function insert_Resp_User($con,$user,$id_pregunta,$resp_user,$resp_correct,$id_cuento,$id_num,$veces_leido)
 {   include("check_end.php");
     $con->set_charset("utf8");
     if ($resp_correct==$resp_user)
@@ -45,8 +45,8 @@ function insert_Resp_User($con,$user,$id_pregunta,$resp_user,$resp_correct,$id_c
         $order_preg=$arr_order_preg['order_preg'];
     //
     //print $result;
-    //print $user;
-    $sql1="update Respuesta_pregunta set resultado=$result,resp_user='$resp_user',id_feedback=$feedback_flag,estado=1,orden_preg=$order_preg+1 where nombre_usuario='$user' and id_pregunta=$id_pregunta and estado=0";
+    print $id_pregunta;
+    $sql1="update Respuesta_pregunta set resultado=$result,resp_user='$resp_user',id_feedback=$feedback_flag,estado=1,orden_preg=$order_preg+1 where nombre_usuario='$user' and id_pregunta=$id_pregunta and estado=0 and intento=$veces_leido";
     if (!$resultado = $con->query($sql1)) {
         $error=mysqli_error($con);
          echo $error;
