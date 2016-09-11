@@ -46,7 +46,7 @@ $objPHPExcel->getProperties()->setDescription("Test document for Office 2007 XLS
 $objPHPExcel->setActiveSheetIndex(0);
 //$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 5, 'php');
 $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'Username');
-$objPHPExcel->getActiveSheet()->SetCellValue('B1', 'id_pregunta');
+$objPHPExcel->getActiveSheet()->SetCellValue('B1', 'orden_resp');
 $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'id_tipo_fb');
 $objPHPExcel->getActiveSheet()->SetCellValue('D1', 'respuesta_usuario');
 $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'resultado_user');
@@ -75,7 +75,7 @@ $objPHPExcel->getActiveSheet()->SetCellValue('V1', 'edad');
 $objPHPExcel->getActiveSheet()->SetCellValue('W1', 'id_cuento');
 // $objPHPExcel->getActiveSheet()->SetCellValue('D2', 'world!');
 $objPHPExcel->getActiveSheet()->getStyle('A1:W1')->getFont()->setBold(true);
-$sql = "SELECT Respuesta_pregunta.nombre_usuario,Reader_profile.cond_exp_infer,total_infer, Respuesta_pregunta.id_pregunta,Respuesta_pregunta.id_feedback,".
+$sql = "SELECT Respuesta_pregunta.nombre_usuario,Reader_profile.cond_exp_infer,total_infer, Respuesta_pregunta.orden_preg,Respuesta_pregunta.id_feedback,".
 "resp_user,resultado,estado as estado_pregunta,intento,".
 "Cuento_por_Usuario.veces_leido,ind_pagina,pregunta_texto,".
 "Pagina.id_pagina,cond_exp,respuesta_correcta,".
@@ -122,7 +122,7 @@ if (!$resultado = $con->query($sql) or empty($resultado)) {
          foreach($rows as $row)
     {
       $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, $cont, $row['nombre_usuario']);
-      $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $cont, $row['id_pregunta']);
+      $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $cont, $row['orden_preg']);
       $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $cont, $row['id_feedback']);
       $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $cont, $row['resp_user']);
       $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4, $cont, $row['resultado']);

@@ -143,10 +143,10 @@ function get_percent($username,$con)
      $per_monit=$arr_percent['monit_per'];
      $per_struct=$arr_percent['struct_per'];
 
-     if ($per_infer>=65 and $per_monit>=65 and $per_struct>=65) {
+     if ($per_infer>=85 and $per_monit>=85 and $per_struct>=85) {
      	return 3;
      }
-     elseif ($per_infer>=50 and $per_monit>=50 and $per_struct>=50) {
+     elseif ($per_infer>=70 and $per_monit>=70 and $per_struct>=70) {
      	return 2;
      }
      else
